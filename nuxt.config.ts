@@ -11,6 +11,8 @@ export default defineNuxtConfig({
   fonts: {
    families: [
       { name: 'Open Sans', provider: 'google', weights: [400, 500, 600, 700, 800] },
+      { name: 'DM Sans', provider: 'google', weights: [400, 700, 800, 900] },
+      { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700] },
      ],
    },
   compatibilityDate: '2025-07-15',

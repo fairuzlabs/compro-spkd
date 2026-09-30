@@ -2,6 +2,8 @@
 
 @theme {
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
   --color-brand: #1b9b8d;
   --color-navy: #0c2b47;
   --color-deep: #063a63;
@@ -28,4 +30,142 @@
   padding-inline: 1rem;
   @media (min-width: 40rem) { padding-inline: 1.5rem; }
   @media (min-width: 64rem) { padding-inline: 45px; }
+}
+
+.compliance-page {
+  --color-brand: #0d9b91;
+  --color-navy: #0a2942;
+  --color-ink: #425c69;
+  --color-muted: #738893;
+  --color-mint: #ddf5f1;
+  font-family: var(--font-inter);
+}
+
+.compliance-page h1,
+.compliance-page h2,
+.compliance-page .compliance-display-font {
+  font-family: var(--font-dm-sans);
+}
+
+.compliance-page .compliance-hero-grid {
+  min-height: 580px;
+  padding-block: 80px;
+  grid-template-columns: minmax(0, 690px) minmax(360px, 1fr);
+  gap: clamp(40px, 5.3vw, 76px);
+}
+
+.compliance-page .compliance-hero-title {
+  font-size: clamp(46px, 4.45vw, 64px);
+}
+
+.compliance-page .compliance-security-visual {
+  height: 420px;
+}
+
+.compliance-page .compliance-section-heading {
+  font-size: 40px;
+}
+
+.compliance-page .compliance-evidence,
+.compliance-page .compliance-standards,
+.compliance-page .compliance-assurance {
+  padding-block: 96px;
+}
+
+.compliance-page .compliance-evidence-grid {
+  grid-template-columns: 360px minmax(0, 1fr);
+  gap: 64px;
+}
+
+.compliance-page .compliance-assurance-grid {
+  grid-template-columns: minmax(360px, 540px) minmax(0, 1fr);
+  gap: 58px;
+}
+
+.compliance-page .compliance-controls {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 1100px) {
+  .compliance-page .compliance-hero-grid {
+    min-height: auto;
+    padding-block: 64px;
+    grid-template-columns: 1fr 0.78fr;
+    gap: 40px;
+  }
+
+  .compliance-page .compliance-security-visual {
+    height: 380px;
+  }
+
+  .compliance-page .compliance-evidence-grid {
+    grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+    gap: 40px;
+  }
+
+  .compliance-page .compliance-assurance-grid {
+    grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+    gap: 40px;
+  }
+
+  .compliance-page .compliance-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .compliance-page .compliance-controls article {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .compliance-page .compliance-hero-grid {
+    padding-block: 52px 64px;
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .compliance-page .compliance-hero-title {
+    font-size: clamp(39px, 12vw, 52px);
+  }
+
+  .compliance-page .compliance-security-visual {
+    height: min(88vw, 390px);
+    border-radius: 28px;
+  }
+
+  .compliance-page .compliance-security-core {
+    width: 108px;
+    height: 108px;
+  }
+
+  .compliance-page .compliance-evidence,
+  .compliance-page .compliance-standards,
+  .compliance-page .compliance-assurance {
+    padding-block: 72px;
+  }
+
+  .compliance-page .compliance-evidence-grid,
+  .compliance-page .compliance-assurance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compliance-page .compliance-section-heading {
+    font-size: 36px;
+  }
+
+  .compliance-page .compliance-controls {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .compliance-page .compliance-hero-title {
+    font-size: 40px;
+  }
+
+  .compliance-page .compliance-controls {
+    grid-template-columns: 1fr;
+  }
 }
