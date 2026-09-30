@@ -22,7 +22,7 @@ watch(() => route.fullPath, () => (open.value = false))
 <template>
   <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
     <nav
-      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+      class="mx-auto flex h-[64px] max-w-[1440px] items-center justify-between px-4 sm:h-[72px] lg:h-[91px] lg:px-[72px] sm:px-6 lg:h-[91px] lg:px-8 xl:px-[72px]"
     >
       <!-- Logo + nama -->
       <NuxtLink to="/" class="flex items-center gap-3">
@@ -31,20 +31,20 @@ watch(() => route.fullPath, () => (open.value = false))
           alt="Logo SPKD"
           class="h-12 w-auto"
         />
-        <div class="leading-tight">
-          <p class="text-xl font-bold text-navy">SPKD</p>
-          <p class="hidden text-[10px] uppercase tracking-wide text-gray-500 sm:block">
+        <div class="hidden leading-none sm:block">
+          <p class="text-2xl font-bold text-navy">SPKD</p>
+          <p class="hidden text-[9px] uppercase tracking-wide text-gray-500 sm:block">
             Sistem Pelayanan Kesehatan &amp; Data
           </p>
         </div>
       </NuxtLink>
 
       <!-- Menu desktop -->
-      <ul class="hidden items-center gap-6 lg:flex">
+      <ul class="hidden items-center gap-4 lg:flex xl:gap-[22px]">
         <li v-for="link in links" :key="link.to">
           <NuxtLink
             :to="link.to"
-            class="border-b-2 pb-1 text-sm font-medium transition-colors"
+            class="block whitespace-nowrap border-b-2 pb-2.5 text-sm font-medium transition-colors xl:text-[15px]"
             :class="
               isActive(link.to)
                 ? 'border-brand text-brand'
