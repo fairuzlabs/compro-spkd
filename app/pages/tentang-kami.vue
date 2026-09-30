@@ -204,55 +204,6 @@
         </svg>
       </button>
     </section>
-
-    <footer class="w-full bg-[#0a2942] px-5 pb-8 pt-12 sm:px-8 md:pt-16 lg:px-[72px] lg:pt-[72px]">
-      <div class="flex flex-col justify-between gap-10 pb-12 md:pb-[54px] lg:flex-row">
-        <div class="flex flex-col gap-5 lg:w-[420px]">
-          <div class="flex items-center gap-3">
-            <div class="relative h-[38px] w-[43px] shrink-0 md:h-[45px] md:w-[51px]">
-              <img src="~/assets/images/logo-spkd.svg" alt="SPKD logo" class="absolute inset-0 h-full w-full object-contain" />
-            </div>
-            <div class="flex flex-col leading-normal text-white">
-              <p
-                class="text-[20px] font-black md:text-[24px]"
-                style="font-family: 'DM Sans', sans-serif; font-variation-settings: 'opsz' 14;"
-              >
-                PT SPKD
-              </p>
-              <p class="text-[8px] font-semibold uppercase tracking-[0.15em] md:text-[9px]">
-                Sistem Pelayanan Kesehatan &amp; Data
-              </p>
-            </div>
-          </div>
-
-          <p class="text-[14px] leading-[1.65] text-[#ddf5f1] md:text-[15px]">
-            Mitra teknologi kesehatan Indonesia untuk layanan yang terintegrasi, aman, efisien, dan berorientasi
-            pada pengalaman manusia.
-          </p>
-
-          <p class="text-[13px] leading-[1.7] text-white md:text-[14px]">
-            halo@spkd.co.id &nbsp;·&nbsp; +62 21 5088 2026
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:gap-[68px]">
-          <div v-for="column in footerColumns" :key="column.heading" class="flex flex-col gap-3">
-            <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#0d9b91] md:text-[12px]">
-              {{ column.heading }}
-            </p>
-            <p v-for="link in column.links" :key="link" class="cursor-pointer text-[13px] text-white transition-colors hover:text-[#ddf5f1] md:text-[14px]">
-              {{ link }}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-6 h-px w-full bg-[#315167]" />
-      <div class="flex flex-col justify-between gap-3 text-[11px] text-[#738893] sm:flex-row md:text-[12px]">
-        <p>© 2026 PT Sistem Pelayanan Kesehatan dan Data. Seluruh hak dilindungi.</p>
-        <p>Privasi &nbsp;·&nbsp; Ketentuan &nbsp;·&nbsp; Keamanan Informasi</p>
-      </div>
-    </footer>
   </div>
 </template>
 
