@@ -1,23 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900&family=Inter:wght@400;500;600;700;800;900&display=swap');
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@theme inline {
-  --font-dm-sans: 'DM Sans', sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  --color-brand: #0d9b91;
-  --color-navy: #0a2942;
+@theme {
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #1b9b8d;
+  --color-navy: #0c2b47;
+  --color-deep: #063a63;
+  --color-ink: #3e566d;
+  --color-muted: #6b7f93;
+  --color-mint: #7ff0d6;
 }
 
-:root {
-  color-scheme: light;
+/* padding samping 72px (Figma) */
+@utility container-x {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) { padding-inline: 1.5rem; }
+  @media (min-width: 64rem) { padding-inline: 72px; }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f7faf9;
-  color: #0a2942;
+/* padding samping 45px (section kepatuhan, berita, CTA) */
+@utility container-wide {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 1rem;
+  @media (min-width: 40rem) { padding-inline: 1.5rem; }
+  @media (min-width: 64rem) { padding-inline: 45px; }
 }

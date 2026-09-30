@@ -1,8 +1,9 @@
 <template>
-  <div class="min-h-dvh flex flex-col bg-slate-50">
+  <div class="flex min-h-dvh flex-col">
     <Navbar />
     <main class="flex-1">
       <slot />
     </main>
+    <!-- <Footer /> -->
   </div>
 </template>

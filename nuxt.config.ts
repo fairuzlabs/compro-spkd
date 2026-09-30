@@ -3,13 +3,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Nuxt', // default fallback title
-      htmlAttrs: {
-        lang: 'en',
-      },
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      ],
+      htmlAttrs: { lang: 'id' },
+      titleTemplate: '%s | SPKD',
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
   fonts: {
@@ -19,7 +15,7 @@ export default defineNuxtConfig({
    },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  modules: ['@nuxt/fonts'],
+  modules: ['@nuxt/fonts','@nuxt/icon'],
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],

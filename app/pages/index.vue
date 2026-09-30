@@ -1,8 +1,22 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Transforming Healthcare Through Smart Data & Modern Technology',
+  description:
+    'Solusi ekosistem digital terintegrasi untuk mempercepat transformasi layanan, efisiensi operasional, dan kepatuhan regulasi fasilitas kesehatan.',
+  ogTitle: 'SPKD - Sistem Pelayanan Kesehatan & Data',
+  ogDescription: 'Ekosistem digital kesehatan Indonesia.',
+  ogImage: '/images/og-image.png',
+  twitterCard: 'summary_large_image',
+})
+</script>
+
 <template>
-  <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-    <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-      <h1 class="text-3xl font-bold text-navy">Beranda</h1>
-      <p class="mt-3 text-slate-600">Halaman utama masih dalam pengembangan.</p>
-    </div>
-  </section>
+  <div>
+    <HomeHero />
+    <HomeValues />
+    <HomeSolutions />
+    <HomeCompliance />
+    <HomeNews />
+    <HomeCta />
+  </div>
 </template>
