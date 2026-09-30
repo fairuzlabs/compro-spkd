@@ -1,4 +1,6 @@
-<!-- app/pages/index.vue -->
+<!-- app/app.vue -->
 <template>
-  <h1>Halo Nuxt</h1>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

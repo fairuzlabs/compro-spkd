@@ -1,0 +1,92 @@
+<script setup lang="ts">
+const open = ref(false)
+const route = useRoute()
+
+const links = [
+  { label: 'Beranda', to: '/' },
+  { label: 'Tentang Kami', to: '/tentang-kami' },
+  { label: 'Solusi', to: '/solusi' },
+  { label: 'Kepatuhan & Standar', to: '/kepatuhan-standar' },
+  { label: 'Kerja Sama', to: '/kerja-sama' },
+  { label: 'Berita', to: '/berita' },
+  { label: 'Kontak', to: '/kontak' },
+]
+
+const isActive = (to: string) =>
+  to === '/' ? route.path === '/' : route.path.startsWith(to)
+
+// tutup menu mobile tiap pindah halaman
+watch(() => route.fullPath, () => (open.value = false))
+</script>
+
+<template>
+  <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
+    <nav
+      class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+    >
+      <!-- Logo + nama -->
+      <NuxtLink to="/" class="flex items-center gap-3">
+        <img
+          src="~/assets/images/logo-spkd.svg"
+          alt="Logo SPKD"
+          class="h-12 w-auto"
+        />
+        <div class="leading-tight">
+          <p class="text-xl font-bold text-navy">SPKD</p>
+          <p class="hidden text-[10px] uppercase tracking-wide text-gray-500 sm:block">
+            Sistem Pelayanan Kesehatan &amp; Data
+          </p>
+        </div>
+      </NuxtLink>
+
+      <!-- Menu desktop -->
+      <ul class="hidden items-center gap-6 lg:flex">
+        <li v-for="link in links" :key="link.to">
+          <NuxtLink
+            :to="link.to"
+            class="border-b-2 pb-1 text-sm font-medium transition-colors"
+            :class="
+              isActive(link.to)
+                ? 'border-brand text-brand'
+                : 'border-transparent text-slate-600 hover:text-brand'
+            "
+          >
+            {{ link.label }}
+          </NuxtLink>
+        </li>
+      </ul>
+
+      <!-- Hamburger (mobile & tablet) -->
+      <button
+        class="rounded-md p-2 text-navy hover:bg-gray-100 lg:hidden"
+        aria-label="Toggle menu"
+        :aria-expanded="open"
+        @click="open = !open"
+      >
+        <svg v-if="!open" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg v-else class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Menu mobile -->
+    <ul v-if="open" class="border-t border-gray-200 px-4 py-2 lg:hidden">
+      <li v-for="link in links" :key="link.to">
+        <NuxtLink
+          :to="link.to"
+          class="block rounded-md px-3 py-2.5 text-sm font-medium"
+          :class="
+            isActive(link.to)
+              ? 'bg-brand/10 text-brand'
+              : 'text-slate-700 hover:bg-gray-100'
+          "
+        >
+          {{ link.label }}
+        </NuxtLink>
+      </li>
+    </ul>
+  </header>
+</template>
