@@ -9,7 +9,7 @@ const posts = [
       'Kementerian Kesehatan terus mendorong akselerasi interoperabilitas data rekam medis elektronik demi percepatan verifikasi klaim BPJS Kesehatan yang akurat.',
     author: 'Tim Kebijakan SPKD',
     read: '4 min read',
-    image: '/images/berita-1.jpg',
+    image: '/images/beranda-berita.svg',
   },
   {
     slug: 'strategi-proteksi-data-medis-uu-pdp',
@@ -20,7 +20,7 @@ const posts = [
       'Panduan praktis bagi pimpinan IT rumah sakit dalam menerapkan enkripsi database, kontrol akses berbasis peran (RBAC), serta pencatatan audit log forensik digital.',
     author: 'Divisi Keamanan Siber SPKD',
     read: '6 min read',
-    image: '/images/berita-2.jpg',
+    image: '/images/beranda-berita.svg',
   },
   {
     slug: 'optimalisasi-efisiensi-farmasi-logistik-bmhp',
@@ -31,7 +31,7 @@ const posts = [
       "Bagaimana integrasi modul supply chain pada SIMRS-ERP berhasil memangkas waktu tunggu resep dan mencegah 'stock-out' obat-obatan esensial di IGD.",
     author: 'R&D Solusi SPKD',
     read: '5 min read',
-    image: '/images/berita-3.jpg',
+    image: '/images/beranda-berita.svg',
   },
 ]
 </script>
@@ -77,7 +77,7 @@ const posts = [
                 class="h-44 w-full object-cover md:h-48"
               />
               <span
-                class="absolute left-3 top-3 rounded-md bg-deep/90 px-2.5 py-1 text-[10px] font-bold text-white"
+                class="absolute left-3 top-3 rounded-full bg-deep/90 px-2.5 py-1 text-[10px] font-bold text-white"
               >
                 {{ p.category }}
               </span>

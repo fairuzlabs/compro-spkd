@@ -9,11 +9,11 @@ const items = [
 <template>
   <section class="border-y border-gray-200 bg-white">
     <ul class="container-x grid gap-6 py-8 sm:grid-cols-3">
-      <li v-for="item in items" :key="item.no" class="flex items-start gap-3">
-        <span class="mt-1.5 text-xs font-bold text-brand">{{ item.no }}</span>
+      <li v-for="item in items" :key="item.no" class="flex items-center gap-3">
+        <span class="text-base font-bold text-brand">{{ item.no }}</span>
         <div>
-          <p class="text-lg text-navy">{{ item.title }}</p>
-          <p class="text-xs text-muted">{{ item.desc }}</p>
+          <p class="text-xl text-navy">{{ item.title }}</p>
+          <p class="text-sm text-muted">{{ item.desc }}</p>
         </div>
       </li>
     </ul>

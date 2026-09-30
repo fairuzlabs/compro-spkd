@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const partners = [
-  { name: 'SATUSEHAT', sub: 'Ekosistem Kemenkes RI', icon: 'lucide:activity' },
-  { name: 'Kemenkes RI', sub: 'Regulator Kesehatan', icon: 'lucide:square-plus' },
-  { name: 'Kominfo RI', sub: 'PSE Lingkup Publik', icon: 'lucide:monitor-check' },
-  { name: 'BSSN Siber', sub: 'Standar Keamanan Siber', icon: 'lucide:shield' },
-  { name: 'BPJS Kesehatan', sub: 'VClaim, PCare & Antrean', icon: 'lucide:credit-card' },
+  { name: 'SATUSEHAT', sub: 'Ekosistem Kemenkes RI', logo: '/images/beranda-satusehat.svg' },
+  { name: 'Kemenkes RI', sub: 'Regulator Kesehatan', logo: '/images/beranda-kemenkes.svg' },
+  { name: 'Kominfo RI', sub: 'PSE Lingkup Publik', logo: '/images/beranda-kominfo.svg' },
+  { name: 'BSSN Siber', sub: 'Standar Keamanan Siber', logo: '/images/beranda-bssn.svg' },
+  { name: 'BPJS Kesehatan', sub: 'VClaim, PCare & Antrean', logo: '/images/beranda-bpjs.svg' },
 ]
 
 const standards = [
@@ -40,8 +40,15 @@ const standards = [
           :key="p.name"
           class="flex items-center gap-3 rounded-xl bg-white/5 p-4"
         >
-          <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-deep">
-            <Icon :name="p.icon" class="size-5" />
+          <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white p-1.5">
+            <img
+              :src="p.logo"
+              :alt="`Logo ${p.name}`"
+              width="28"
+              height="28"
+              loading="lazy"
+              class="size-full object-contain"
+            />
           </span>
           <div class="min-w-0">
             <p class="truncate text-sm font-bold text-mint">{{ p.name }}</p>
@@ -56,7 +63,7 @@ const standards = [
           :key="s.label"
           class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold"
         >
-          <Icon :name="s.icon" class="size-3.5" />
+          <Icon :name="s.icon" class="size-3.5 text-mint" />
           {{ s.label }}
         </li>
       </ul>
