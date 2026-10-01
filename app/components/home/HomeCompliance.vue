@@ -17,8 +17,27 @@ const standards = [
 </script>
 
 <template>
-  <section class="bg-deep text-white">
-    <div class="container-wide py-10 md:py-12">
+  <section class="relative overflow-hidden bg-deep text-white">
+    <!-- Glow kiri atas -->
+    <img
+      src="/images/beranda-blur.svg"
+      alt=""
+      aria-hidden="true"
+      width="414"
+      height="414"
+      class="pointer-events-none absolute left-0 top-0 w-[260px] -scale-x-100 select-none opacity-50 md:w-[414px]"
+    />
+    <!-- Glow kiri bawah -->
+    <img
+      src="/images/beranda-blur.svg"
+      alt=""
+      aria-hidden="true"
+      width="414"
+      height="414"
+      class="pointer-events-none absolute bottom-0 left-0 w-[260px] -scale-100 select-none opacity-50 md:w-[414px]"
+    />
+
+    <div class="container-wide relative py-10 md:py-12">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p class="text-[11px] font-bold uppercase tracking-wider text-mint">
@@ -63,7 +82,7 @@ const standards = [
           :key="s.label"
           class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold"
         >
-          <Icon :name="s.icon" class="size-3.5 text-mint" />
+          <Icon :name="s.icon" class="size-3.5" />
           {{ s.label }}
         </li>
       </ul>
