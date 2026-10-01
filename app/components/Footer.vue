@@ -41,7 +41,7 @@ const legal = [
         <NuxtLink to="/" class="flex items-center gap-3">
           <div class="relative h-[38px] w-[43px] shrink-0 md:h-[45px] md:w-[51px]">
             <img
-              src="~/assets/images/logo-spkd.svg"
+              src="~/assets/images/logo-spkd-white.svg"
               alt="Logo SPKD"
               class="absolute inset-0 h-full w-full object-contain"
             />
