@@ -22,7 +22,7 @@ watch(() => route.fullPath, () => (open.value = false))
 <template>
   <header class="sticky top-0 z-50 border-b border-gray-200 bg-white">
     <nav
-      class="mx-auto flex h-[64px] max-w-[1440px] items-center justify-between px-4 sm:h-[72px] lg:h-[91px] lg:px-[72px] sm:px-6 lg:h-[91px] lg:px-8 xl:px-[72px]"
+      class="flex h-[64px] items-center justify-between px-5 sm:h-[72px] sm:px-8 lg:h-[91px] lg:px-[72px]"
     >
       <!-- Logo + nama -->
       <NuxtLink to="/" class="flex items-center gap-3">
