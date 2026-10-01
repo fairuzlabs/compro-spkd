@@ -18,6 +18,7 @@ const solutions = [
     number: '01',
     eyebrow: 'SIMRS–ERP & Revenue Cycle',
     id: 'simrs-erp',
+    slug: 'simrs-erp',
     title: 'Kendalikan operasi rumah sakit dan pendapatan secara real-time.',
     description:
       '68 modul klinis dan non-klinis terhubung dengan Executive Information System untuk memberi gambaran menyeluruh dari pelayanan hingga arus pendapatan.',
@@ -36,6 +37,7 @@ const solutions = [
     number: '02',
     eyebrow: 'Trans RME & PHR',
     id: 'transirme',
+    slug: 'interoperabilitas-rme',
     title: 'Rekam medis yang bergerak aman bersama pasien.',
     description:
       'Lapisan interoperabilitas untuk pertukaran data klinis terstandar, Personal Health Record, serta orkestrasi panduan klinis dan critical patient response.',
@@ -64,6 +66,7 @@ const laterSolutions = [
     number: '04',
     eyebrow: 'TransECA-X',
     id: 'transeca-x',
+    slug: 'satusehat-bpjs',
     title: 'Sinkronisasi regulasi dan klaim tanpa kerja berulang.',
     description:
       'TransECA-X membantu fasilitas kesehatan menjaga kualitas RME sekaligus mempercepat proses administrasi JKN dalam satu alur audit yang transparan.',
@@ -82,6 +85,7 @@ const laterSolutions = [
     number: '05',
     eyebrow: 'TransLOG-X',
     id: 'translog-x',
+    slug: 'cash-supply-chain',
     title: 'Rantai pasok kesehatan yang terlihat, terukur, dan lebih sehat.',
     description:
       'Dari farmasi hingga alat kesehatan, TransLOG-X memberi visibilitas persediaan real-time serta opsi pembiayaan rantai pasok yang berkelanjutan.',
@@ -188,7 +192,7 @@ const chartBars = [44, 68, 52, 88, 72, 94, 78, 100, 82]
             </li>
           </ul>
           <NuxtLink
-            to="/kontak"
+            :to="`/solusi/${solution.slug}`"
             class="inline-flex h-[50px] items-center justify-center gap-3 rounded-full border border-brand px-5 text-sm font-medium text-[#08756f] transition hover:bg-brand hover:text-white"
           >
             Pelajari kapabilitas
@@ -287,7 +291,7 @@ const chartBars = [44, 68, 52, 88, 72, 94, 78, 100, 82]
               </li>
             </ul>
             <NuxtLink
-              to="/kontak"
+              to="/solusi/tele-health-smart-emergency"
               class="inline-flex h-[50px] w-fit items-center justify-center gap-3 rounded-full border border-brand px-5 text-sm font-medium text-white transition hover:bg-brand"
             >
               Pelajari kapabilitas
@@ -320,7 +324,7 @@ const chartBars = [44, 68, 52, 88, 72, 94, 78, 100, 82]
             </li>
           </ul>
           <NuxtLink
-            to="/kontak"
+            :to="`/solusi/${solution.slug}`"
             class="inline-flex h-[50px] items-center justify-center gap-3 rounded-full border border-brand px-5 text-sm font-medium text-[#08756f] transition hover:bg-brand hover:text-white"
           >
             Pelajari kapabilitas

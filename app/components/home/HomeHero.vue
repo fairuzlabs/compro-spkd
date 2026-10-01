@@ -2,7 +2,7 @@
   <section class="overflow-hidden bg-gradient-to-br from-[#e9f5f4] via-[#f3f9f9] to-white">
     <div class="grid items-center gap-10 py-12 md:py-16 lg:grid-cols-2 lg:gap-0 lg:py-[72px]">
       <div
-        class="px-4 sm:px-6 lg:pl-[max(72px,calc((100vw-1440px)/2+72px))] lg:pr-12"
+        class="px-5 sm:px-8 lg:pl-[72px] lg:pr-12"
       >
         <p class="text-[11px] font-bold uppercase tracking-wider text-brand">
           Ekosistem Digital Kesehatan Indonesia
@@ -36,7 +36,7 @@
       </div>
 
       <!-- Gambar: mepet kanan di desktop, tetap ada padding di mobile -->
-      <div class="relative px-4 sm:px-6 lg:px-0">
+      <div class="relative px-5 sm:px-8 lg:px-0">
         <img
           src="~/assets/images/hero-beranda.svg"
           alt="Tenaga kesehatan berdiskusi dengan pasien memakai tablet"
