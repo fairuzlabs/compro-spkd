@@ -6,7 +6,7 @@ const links = [
   { label: 'Beranda', to: '/' },
   { label: 'Tentang Kami', to: '/tentang-kami' },
   { label: 'Solusi', to: '/solusi' },
-  { label: 'Kepatuhan & Standar', to: '/kepatuhan-standar' },
+  // { label: 'Kepatuhan & Standar', to: '/kepatuhan-standar' },
   { label: 'Kerja Sama', to: '/kerja-sama' },
   { label: 'Berita', to: '/berita' },
   { label: 'Kontak', to: '/kontak' },
