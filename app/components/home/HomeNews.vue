@@ -1,39 +1,11 @@
 <script setup lang="ts">
-const posts = [
-  {
-    slug: 'kemenkes-perkuat-tata-kelola-klaim-jkn',
-    category: 'Regulasi & Kebijakan',
-    date: '30 Juli 2026',
-    title: 'Kemenkes Perkuat Tata Kelola Klaim JKN melalui Integrasi Rekam Medis Elektronik',
-    excerpt:
-      'Kementerian Kesehatan terus mendorong akselerasi interoperabilitas data rekam medis elektronik demi percepatan verifikasi klaim BPJS Kesehatan yang akurat.',
-    author: 'Tim Kebijakan SPKD',
-    read: '4 min read',
-    image: '/images/beranda-berita.svg',
-  },
-  {
-    slug: 'strategi-proteksi-data-medis-uu-pdp',
-    category: 'Keamanan Siber',
-    date: '18 Juli 2026',
-    title: 'Strategi Proteksi Data Medis Pasien Menghadapi Kepatuhan Penuh UU PDP di RS',
-    excerpt:
-      'Panduan praktis bagi pimpinan IT rumah sakit dalam menerapkan enkripsi database, kontrol akses berbasis peran (RBAC), serta pencatatan audit log forensik digital.',
-    author: 'Divisi Keamanan Siber SPKD',
-    read: '6 min read',
-    image: '/images/beranda-berita.svg',
-  },
-  {
-    slug: 'optimalisasi-efisiensi-farmasi-logistik-bmhp',
-    category: 'Inovasi Klinis',
-    date: '05 Juli 2026',
-    title: 'Optimalisasi Efisiensi Farmasi dan Logistik BMHP Rumah Sakit',
-    excerpt:
-      "Bagaimana integrasi modul supply chain pada SIMRS-ERP berhasil memangkas waktu tunggu resep dan mencegah 'stock-out' obat-obatan esensial di IGD.",
-    author: 'R&D Solusi SPKD',
-    read: '5 min read',
-    image: '/images/beranda-berita.svg',
-  },
-]
+import { articles } from '~/data/artikel'
+import { formatDate } from '~/utils/format'
+
+// 3 artikel terbaru
+const posts = [...articles]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 3)
 </script>
 
 <template>
@@ -69,8 +41,8 @@ const posts = [
           >
             <div class="relative">
               <img
-                :src="p.image"
-                :alt="p.title"
+                :src="p.image.src"
+                :alt="p.image.alt"
                 width="600"
                 height="260"
                 loading="lazy"
@@ -83,11 +55,13 @@ const posts = [
               </span>
             </div>
             <div class="flex flex-1 flex-col p-5">
-              <p class="text-xs text-muted">{{ p.date }}</p>
+              <time :datetime="p.date" class="text-xs text-muted">
+                {{ formatDate(p.date) }}
+              </time>
               <h3 class="mt-3 text-base font-bold leading-snug text-navy">{{ p.title }}</h3>
               <p class="mt-3 line-clamp-3 text-xs leading-relaxed text-ink">{{ p.excerpt }}</p>
               <div class="mt-auto flex items-center justify-between pt-5 text-[11px] font-semibold text-navy">
-                <span>{{ p.author }} • {{ p.read }}</span>
+                <span>{{ p.source }} • {{ p.readMinutes }} min read</span>
                 <Icon name="lucide:arrow-right" class="size-4 transition group-hover:translate-x-1" />
               </div>
             </div>

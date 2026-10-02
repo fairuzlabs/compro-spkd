@@ -11,7 +11,6 @@ if (!solution) {
     fatal: true,
   })
 }
-
 useSeoMeta({
   title: solution.name,
   description: solution.hero.desc,

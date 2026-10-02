@@ -54,7 +54,7 @@ export const solutions: Solusi[] = [
       desc: 'Satu ekosistem ERP medis modular yang merasionalisasi alur klinis, logistik, dan akuntansi real-time guna mendongkrak efisiensi faskes.',
       button: 'Diskusikan Kebutuhan SIMRS-ERP',
       image: {
-        src: '/images/solusi/simrs-erp.jpg',
+        src: '/images/beranda-berita.svg',
         alt: 'Petugas rumah sakit mengoperasikan sistem SIMRS-ERP di meja layanan',
       },
     },
@@ -140,7 +140,7 @@ export const solutions: Solusi[] = [
       desc: 'Menyelaraskan data klinis menggunakan format standar HL7 FHIR dan SNOMED CT demi integrasi tanpa cela dengan Kementerian Kesehatan SATUSEHAT.',
       button: 'Diskusikan Kebutuhan EMR',
       image: {
-        src: '/images/solusi/interoperabilitas-rme.jpg',
+        src: '/images/beranda-berita.svg',
         alt: 'Dokter menjelaskan data rekam medis elektronik kepada pasien lewat tablet',
       },
     },
@@ -221,7 +221,7 @@ export const solutions: Solusi[] = [
       desc: 'Menyatukan telemedicine, pemantauan EKG & ICU jarak jauh, hingga IoT ambulans canggih dalam satu orkestrasi koordinasi tanggap darurat yang cepat.',
       button: 'Diskusikan Kebutuhan Tele-Health',
       image: {
-        src: '/images/solusi/tele-health-smart-emergency.jpg',
+        src: '/images/beranda-berita.svg',
         alt: 'Paramedis menangani pasien di dalam ambulans yang dilengkapi peralatan medis',
       },
     },
@@ -307,7 +307,7 @@ export const solutions: Solusi[] = [
       desc: 'Menjembatani sistem internal rumah sakit Anda dengan Platform SATUSEHAT Kemenkes serta sistem vClaim BPJS Kesehatan secara real-time guna mempercepat administrasi dan audit klaim.',
       button: 'Diskusikan Kebutuhan Integrasi',
       image: {
-        src: '/images/solusi/satusehat-bpjs.jpg',
+        src: '/images/beranda-berita.svg',
         alt: 'Dashboard kepatuhan dan interoperabilitas RME pada layar komputer',
       },
     },
@@ -388,7 +388,7 @@ export const solutions: Solusi[] = [
       desc: 'Solusi cerdas tata kelola rantai pasok medis (TransLOG-X) yang terhubung langsung dengan distributor farmasi terpercaya dan program pendanaan talangan arus kas faskes.',
       button: 'Diskusikan Kebutuhan Supply Chain',
       image: {
-        src: '/images/solusi/cash-supply-chain.jpg',
+        src: '/images/beranda-berita.svg',
         alt: 'Petugas gudang farmasi memeriksa stok obat di rak logistik',
       },
     },
