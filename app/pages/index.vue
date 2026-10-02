@@ -14,7 +14,6 @@ useSeoMeta({
   <div>
     <HomeHero />
     <HomeValues />
-    <HomeSolutions />
     <HomeCompliance />
     <HomeNews />
     <HomeCta />
