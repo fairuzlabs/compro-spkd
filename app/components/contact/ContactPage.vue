@@ -23,7 +23,7 @@ function validatePhone(event: Event) {
   input.setCustomValidity(
     isValid
       ? ''
-      : 'Masukkan nomor ponsel Indonesia yang valid, contoh 081234567890 atau +62 812 3456 7890.',
+      : 'Masukkan nomor ponsel yang valid.',
   )
 }
 </script>
@@ -90,14 +90,14 @@ function validatePhone(event: Event) {
           <input
             name="phone"
             type="tel"
-            placeholder="+62 812 3456 7890"
+            placeholder="08xx-xxxx-xxxx"
             autocomplete="tel"
             aria-describedby="contact-phone-hint"
             required
             @input="validatePhone"
           />
           <small id="contact-phone-hint" class="contact-field-hint">
-            Masukkan nomor ponsel aktif, misalnya 081234567890 atau +62 812 3456 7890.
+            Masukkan nomor ponsel aktif.
           </small>
         </label>
 
