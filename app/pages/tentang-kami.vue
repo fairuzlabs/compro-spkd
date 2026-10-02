@@ -124,8 +124,8 @@
         </div>
       </div>
     </section>
-
-    <section class="relative overflow-hidden bg-linear-to-b from-navy to-[#00355f] px-5 py-14 sm:px-8 md:py-20 lg:px-18 lg:py-24">
+    <!-- HOLD DULU -->
+    <!-- <section class="relative overflow-hidden bg-linear-to-b from-navy to-[#00355f] px-5 py-14 sm:px-8 md:py-20 lg:px-18 lg:py-24">
       <div class="pointer-events-none absolute -left-25 -top-12.75 h-90 w-90 rounded-full bg-[rgba(15,74,121,0.35)] blur-[36px]" />
       <div class="pointer-events-none absolute -right-25 top-24 h-90 w-90 rounded-full bg-[rgba(15,74,121,0.35)] blur-[36px]" />
 
@@ -187,7 +187,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="flex w-full flex-col items-start justify-between gap-6 bg-[#f3feff] px-5 py-12 sm:flex-row sm:items-center sm:px-8 md:py-16 lg:px-18">
       <p
