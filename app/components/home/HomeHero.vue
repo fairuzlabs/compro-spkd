@@ -1,29 +1,44 @@
 <script setup lang="ts">
 import hero1 from '~/assets/images/hero-beranda.svg'
 import hero2 from '~/assets/images/hero-solusi.svg'
-// import hero3 from '~/assets/images/hero-beranda-3.jpg'
 
-const slides = [
-  { src: hero1, alt: 'Tenaga kesehatan berdiskusi dengan pasien memakai tablet' },
-  { src: hero2, alt: 'Tenaga kesehatan berdiskusi dengan pasien memakai tablet' },
-  { src: hero1, alt: 'Tenaga kesehatan berdiskusi dengan pasien memakai tablet' },
+type HeroImage = { id: string; image: string | null; description: string | null }
+type HeroResponse = { data: { images?: HeroImage[] } | null }
 
-  // { src: hero2, alt: 'Deskripsi gambar kedua' },
-  // { src: hero3, alt: 'Deskripsi gambar ketiga' },
+const DEFAULT_ALT = 'Tenaga kesehatan berdiskusi dengan pasien memakai tablet'
+
+// Dipakai kalau API kosong atau gagal
+const fallbackSlides = [
+  { src: hero1, alt: DEFAULT_ALT },
+  { src: hero2, alt: DEFAULT_ALT },
 ]
+
+const { public: { apiBase } } = useRuntimeConfig()
+
+const { data: hero } = await useFetch<HeroResponse>(`${apiBase}/homepage-hero`, {
+  key: 'homepage-hero',
+})
+
+const slides = computed(() => {
+  const images = (hero.value?.data?.images ?? []).filter((i) => i.image)
+  if (!images.length) return fallbackSlides
+  return images.map((i) => ({ src: i.image as string, alt: i.description || DEFAULT_ALT }))
+})
 
 const INTERVAL = 5000 // jeda antar geser (ms)
 const DURATION = 600 // lama animasi geser (ms)
 
 // gambar pertama diduplikasi di akhir supaya loop terus meluncur ke kiri
-const track = slides.length > 1 ? [...slides, slides[0]!] : slides
+const track = computed(() =>
+  slides.value.length > 1 ? [...slides.value, slides.value[0]!] : slides.value,
+)
 
 const index = ref(0)
 const animate = ref(true)
 const paused = ref(false)
 let timer: ReturnType<typeof setInterval> | undefined
 
-const active = computed(() => index.value % slides.length)
+const active = computed(() => index.value % slides.value.length)
 
 const goTo = (i: number) => {
   animate.value = true
@@ -34,7 +49,7 @@ const next = () => goTo(index.value + 1)
 
 // sudah sampai duplikat di akhir: lompat diam-diam ke gambar pertama
 const onTransitionEnd = () => {
-  if (index.value === slides.length) {
+  if (index.value === slides.value.length) {
     animate.value = false
     index.value = 0
   }
@@ -50,15 +65,14 @@ const onTouchEnd = (e: TouchEvent) => {
   const dx = e.changedTouches[0]!.clientX - startX
   if (Math.abs(dx) > 40) {
     if (dx < 0) next()
-    else goTo((active.value - 1 + slides.length) % slides.length)
+    else goTo((active.value - 1 + slides.value.length) % slides.value.length)
   }
   paused.value = false
 }
 
 onMounted(() => {
-  if (slides.length < 2) return
   timer = setInterval(() => {
-    if (!paused.value) next()
+    if (!paused.value && slides.value.length > 1) next()
   }, INTERVAL)
 })
 
