@@ -40,7 +40,7 @@
             class="text-[22px] font-normal leading-[1.32] text-white sm:text-[24px] lg:text-[29px]"
             style="font-family: 'DM Sans', sans-serif; font-variation-settings: 'opsz' 14;"
           >
-            Mewujudkan ekosistem kesehatan digital yang terintegrasi, aman, dan berkelanjutan.
+            No ERM, No Claim
           </p>
           <p class="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#ddf5f1] lg:text-[13px]">
             Misi PT SPKD

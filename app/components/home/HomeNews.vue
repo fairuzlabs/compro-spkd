@@ -1,11 +1,63 @@
 <script setup lang="ts">
-import { articles } from '~/data/artikel'
 import { formatDate } from '~/utils/format'
 
+type ApiNews = {
+  slug: string
+  title: string
+  excerpt: string | null
+  featured_image: string | null
+  author: string | null
+  reading_time: number | null
+  published_at: string | null
+  category?: { name: string } | null
+}
+
+const {
+  public: { apiBase },
+} = useRuntimeConfig()
+
+const imageUrl = (path: string | null) => {
+  if (!path) return ''
+
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    return path
+  }
+
+  return `${apiBase.replace('/api', '')}/storage/${path}`
+}
+
+// Terima {data: [...]} maupun {data: {data: [...]}} (paginasi)
+const { data: res } = await useFetch<{
+  data: ApiNews[] | { data: ApiNews[] }
+}>(`${apiBase}/news`, {
+  key: 'home-news',
+})
+
+// Dibentuk sama seperti data/artikel lama, jadi template tidak berubah
 // 3 artikel terbaru
-const posts = [...articles]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 3)
+const posts = computed(() => {
+  const raw = res.value?.data
+  const list = Array.isArray(raw) ? raw : (raw?.data ?? [])
+
+  return [...list]
+    .sort((a, b) =>
+      (b.published_at ?? '').localeCompare(a.published_at ?? ''),
+    )
+    .slice(0, 3)
+    .map((n) => ({
+      slug: n.slug,
+      title: n.title,
+      excerpt: (n.excerpt ?? '').replace(/<[^>]*>/g, ''),
+      date: n.published_at ?? '',
+      category: n.category?.name ?? '',
+      source: n.author ?? '',
+      readMinutes: n.reading_time ?? 1,
+      image: {
+        src: imageUrl(n.featured_image),
+        alt: n.title,
+      },
+    }))
+})
 </script>
 
 <template>

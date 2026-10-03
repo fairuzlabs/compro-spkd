@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { getArticle, type Article } from '~/data/artikel'
-
 const route = useRoute()
-const article = getArticle(route.params.slug as string)
+
+const { article, related } = await useNewsDetail(
+  route.params.slug as string
+)
+
+console.log('ARTICLE:', article)
+console.log('IMAGE:', article?.image)
+console.log('IMAGE SRC:', article?.image?.src)
 
 if (!article) {
   throw createError({
@@ -12,16 +17,12 @@ if (!article) {
   })
 }
 
-const related = article.related
-  .map((slug) => getArticle(slug))
-  .filter((a): a is Article => !!a)
-
 useSeoMeta({
   title: article.title,
   description: article.excerpt,
   ogTitle: article.title,
   ogDescription: article.excerpt,
-  ogImage: article.image.src,
+  ogImage: article.image?.src,
   ogType: 'article',
   twitterCard: 'summary_large_image',
 })
@@ -35,10 +36,16 @@ useHead({
         '@type': 'Article',
         headline: article.title,
         description: article.excerpt,
-        image: article.image.src,
+        image: article.image?.src,
         datePublished: article.date,
-        author: { '@type': 'Organization', name: article.source },
-        publisher: { '@type': 'Organization', name: 'PT SPKD' },
+        author: {
+          '@type': 'Organization',
+          name: article.source,
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'PT SPKD',
+        },
       }),
     },
   ],
@@ -49,6 +56,9 @@ useHead({
   <article v-if="article">
     <ArtikelHero :article="article" />
     <ArtikelBody :article="article" />
-    <ArtikelRelated v-if="related.length" :items="related" />
+    <ArtikelRelated
+      v-if="related.length"
+      :items="related"
+    />
   </article>
 </template>

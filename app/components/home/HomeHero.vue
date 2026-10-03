@@ -2,7 +2,7 @@
 import hero1 from '~/assets/images/hero-beranda.svg'
 import hero2 from '~/assets/images/hero-solusi.svg'
 
-type HeroImage = { id: string; image: string | null; description: string | null }
+type HeroImage = { id: string; image_url: string | null; description: string | null }
 type HeroResponse = { data: { images?: HeroImage[] } | null }
 
 const DEFAULT_ALT = 'Tenaga kesehatan berdiskusi dengan pasien memakai tablet'
@@ -20,9 +20,9 @@ const { data: hero } = await useFetch<HeroResponse>(`${apiBase}/homepage-hero`, 
 })
 
 const slides = computed(() => {
-  const images = (hero.value?.data?.images ?? []).filter((i) => i.image)
+  const images = (hero.value?.data?.images ?? []).filter((i) => i.image_url)
   if (!images.length) return fallbackSlides
-  return images.map((i) => ({ src: i.image as string, alt: i.description || DEFAULT_ALT }))
+  return images.map((i) => ({ src: i.image_url as string, alt: i.description || DEFAULT_ALT }))
 })
 
 const INTERVAL = 5000 // jeda antar geser (ms)

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { articles } from '~/data/artikel'
-
 useSeoMeta({
   title: 'Berita & Wawasan',
   description:
@@ -11,23 +9,27 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-const topics = [
+const { articles } = await useNewsList()
+
+// Filter topik diambil dari kategori berita yang ada di CMS
+const topics = computed(() => [
   { label: 'Semua', value: 'semua' },
-  { label: 'Kebijakan', value: 'kebijakan' },
-  { label: 'Teknologi', value: 'teknologi' },
-  { label: 'Layanan', value: 'layanan' },
-]
+  ...[...new Set(articles.value.map((a) => a.topic as string).filter(Boolean))].map((t) => ({
+    label: t,
+    value: t,
+  })),
+])
 
 const active = ref('semua')
 
 // terbaru di atas
-const sorted = [...articles].sort((a, b) => b.date.localeCompare(a.date))
-const featured = sorted.find((a) => a.featured) ?? sorted[0]
+const sorted = computed(() => [...articles.value].sort((a, b) => b.date.localeCompare(a.date)))
+const featured = computed(() => sorted.value.find((a) => a.featured) ?? sorted.value[0])
 
 const list = computed(() =>
-  sorted.filter(
+  sorted.value.filter(
     (a) =>
-      a.slug !== featured?.slug &&
+      a.slug !== featured.value?.slug &&
       (active.value === 'semua' || a.topic === active.value),
   ),
 )
